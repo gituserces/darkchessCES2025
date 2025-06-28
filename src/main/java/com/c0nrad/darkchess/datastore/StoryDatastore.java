@@ -12,20 +12,18 @@ import org.bson.types.ObjectId;
 import xyz.morphia.Datastore;
 
 public class StoryDatastore {
-        // Filas completas
-    public static final String WHITE_PAWN_ROW = "PPPPPPPP";
-    public static final String BLACK_PAWN_ROW = "pppppppp";
-    public static final String EMPTY_ROW      = "        ";
-
-    // Reyes en la columna E
-    public static final String WHITE_KING_ROW = "    K   ";
-    public static final String BLACK_KING_ROW = "    k   ";
+    private static final String WHITE_PAWN_ROW = "PPPPPPPP";
+    private static final String BLACK_PAWN_ROW = "pppppppp";
+    private static final String EMPTY_ROW      = "        ";
+    private static final String WHITE_KING_ROW = "    K   ";
+    private static final String BLACK_KING_ROW = "    k   ";
     
     public static Story Find(String storyId) {
         Datastore d = MorphiaSingleton.GetDatastore();
         ObjectId objectId = new ObjectId(storyId);
         return d.get(Story.class, objectId);
     }
+    
 
     public static List<Story> FindAll() {
         Datastore d = MorphiaSingleton.GetDatastore();
@@ -76,14 +74,15 @@ public class StoryDatastore {
         "Can you find and kill the enemy king before being assassinated??\n";
 
         String[] layout2 ={
-            "   NKN  ", 
-            "        ",
-            "        ",
-            "        ",
-            "        ",
-            "        ",
-            "        ",
-            "   nkn  "}; 
+                "   NKN  ", 
+        EMPTY_ROW,
+        EMPTY_ROW,
+        EMPTY_ROW,
+        EMPTY_ROW,
+        EMPTY_ROW,
+        EMPTY_ROW,
+                "   nkn  "}; 
+
 
         Board b2 = new Board(layout2);
 
@@ -100,14 +99,14 @@ public class StoryDatastore {
         "Hurry before it's too late!?\n";
 
         String[] layout3 ={
-            "RNBQKBNR", 
-            "PPPPPPPP",
-            "        ",
-            "        ",
-            "        ",
-            "        ",
-            "pppppppp",
-            "rnb kbnr"}; 
+                "RNBQKBNR", 
+                WHITE_PAWN_ROW,
+                EMPTY_ROW,
+                EMPTY_ROW,
+                EMPTY_ROW,
+                EMPTY_ROW,
+                BLACK_PAWN_ROW,
+                "rnb kbnr"}; 
 
         Board b3 = new Board(layout3);
 
@@ -124,13 +123,13 @@ public class StoryDatastore {
         "Kill the peasants and their leader before they get to us!?\n";
 
         String[] layout4 ={
-            "PPPPKPPP", 
-            "PPPPPPPP",
-            "PPPPPPPP",
-            "        ",
-            "        ",
-            "        ",
-            "        ",
+        	WHITE_PAWN_ROW, 
+        	WHITE_PAWN_ROW,
+        	WHITE_PAWN_ROW,
+        	EMPTY_ROW,
+        	EMPTY_ROW,
+        	EMPTY_ROW,
+        	EMPTY_ROW,
             "rnbqkbnr"}; 
 
         Board b4 = new Board(layout4);
@@ -147,12 +146,12 @@ public class StoryDatastore {
 
         String[] layout5 ={
             "RNBQKBNR", 
-            "PPPPPPPP",
-            "        ",
-            "        ",
-            "        ",
-            "        ",
-            "pppppppp",
+            WHITE_PAWN_ROW,
+            EMPTY_ROW,
+            EMPTY_ROW,
+            EMPTY_ROW,
+            EMPTY_ROW,
+            BLACK_PAWN_ROW,
             "rnbqkbnr"}; 
 
         Board b5 = new Board(layout5);
