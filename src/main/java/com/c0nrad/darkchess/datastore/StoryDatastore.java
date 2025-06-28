@@ -40,15 +40,28 @@ public class StoryDatastore {
         "\n"+
         "The fate of our people depends on you.";
 
-        String[] layout ={
-            "    K   ", 
-            "PPPPPPPP",
-            "        ",
-            "        ",
-            "        ",
-            "        ",
-            "pppppppp",
-            "    k   "}; 
+    private ChessLayouts() {}
+
+    // Filas completas
+    public static final String WHITE_PAWN_ROW = "PPPPPPPP";
+    public static final String BLACK_PAWN_ROW = "pppppppp";
+    public static final String EMPTY_ROW      = "        ";
+
+    // Reyes en la columna E
+    public static final String WHITE_KING_ROW = "    K   ";
+    public static final String BLACK_KING_ROW = "    k   ";
+}
+
+    String[] layout = {
+    ChessLayouts.WHITE_KING_ROW,
+    ChessLayouts.WHITE_PAWN_ROW,
+    ChessLayouts.EMPTY_ROW,
+    ChessLayouts.EMPTY_ROW,
+    ChessLayouts.EMPTY_ROW,
+    ChessLayouts.EMPTY_ROW,
+    ChessLayouts.BLACK_PAWN_ROW,
+    ChessLayouts.BLACK_KING_ROW
+};
 
         Board b = new Board(layout);
 
