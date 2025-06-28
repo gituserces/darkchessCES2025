@@ -12,6 +12,15 @@ import org.bson.types.ObjectId;
 import xyz.morphia.Datastore;
 
 public class StoryDatastore {
+        // Filas completas
+    public static final String WHITE_PAWN_ROW = "PPPPPPPP";
+    public static final String BLACK_PAWN_ROW = "pppppppp";
+    public static final String EMPTY_ROW      = "        ";
+
+    // Reyes en la columna E
+    public static final String WHITE_KING_ROW = "    K   ";
+    public static final String BLACK_KING_ROW = "    k   ";
+    
     public static Story Find(String storyId) {
         Datastore d = MorphiaSingleton.GetDatastore();
         ObjectId objectId = new ObjectId(storyId);
@@ -40,27 +49,15 @@ public class StoryDatastore {
         "\n"+
         "The fate of our people depends on you.";
 
-    private ChessLayouts() {}
-
-    // Filas completas
-    public static final String WHITE_PAWN_ROW = "PPPPPPPP";
-    public static final String BLACK_PAWN_ROW = "pppppppp";
-    public static final String EMPTY_ROW      = "        ";
-
-    // Reyes en la columna E
-    public static final String WHITE_KING_ROW = "    K   ";
-    public static final String BLACK_KING_ROW = "    k   ";
-}
-
     String[] layout = {
-    ChessLayouts.WHITE_KING_ROW,
-    ChessLayouts.WHITE_PAWN_ROW,
-    ChessLayouts.EMPTY_ROW,
-    ChessLayouts.EMPTY_ROW,
-    ChessLayouts.EMPTY_ROW,
-    ChessLayouts.EMPTY_ROW,
-    ChessLayouts.BLACK_PAWN_ROW,
-    ChessLayouts.BLACK_KING_ROW
+    WHITE_KING_ROW,
+    WHITE_PAWN_ROW,
+    EMPTY_ROW,
+    EMPTY_ROW,
+    EMPTY_ROW,
+    EMPTY_ROW,
+    BLACK_PAWN_ROW,
+    BLACK_KING_ROW
 };
 
         Board b = new Board(layout);
